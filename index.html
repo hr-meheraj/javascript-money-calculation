@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Finantial Calculation</title>
+    <link href="style.css" rel="stylesheet" type="text/css" />
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Google icons -->
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined"
+    />
+    <!-- customize TAilwind css -->
+    <script>
+      tailwind.config = {
+        theme: {
+          fontFamily: {
+            poppins: ["Poppins", "sans-serif"],
+          },
+        },
+      };
+    </script>
+  </head>
+
+  <body class="font-poppins caret-pink-500">
+    <!-- Header Title -->
+    <header class="container mx-auto py-4 mb-2">
+      <h1
+        class="py-4 text-center text-blue-700 font-bold text-xl sm:text-3xl font-poppins flex justify-center items-center"
+      >
+        Financial Calculation $
+      </h1>
+    </header>
+    <!-- Main Area -->
+    <main class="lg:flex lg:flex-row container my-6 mx-auto p-2">
+      <!-- First section  -->
+      <section class="w-full lg:w-7/12">
+        <img src="./images/
+pay.svg" alt="Pay Svg image" class="w-full" />
+      </section>
+
+      <!-- Second Section -->
+      <section
+        class="rounded-md mt-6 w-full lg:w-6/12 bg-blue-500 text-white p-6 lg:p-4"
+      >
+        <form>
+          <h2 class="py-4 text-center text-2xl font-bold">Income</h2>
+
+          <div class="income-section mx-2 md:mx-6">
+            <label
+              for="income-value"
+              class="md:text-xl block w-full bg-gray-200 text-black py-2 px-2 md:px-4 rounded-lg flex"
+            >
+              <span class="w-4/12 lg:2/12">Income:</span>
+              <input
+                min="100"
+                max="500000"
+                required
+                type="number"
+                id="income-value"
+                name="income"
+                class="w-8/12 lg:10/12 pl-2 outline-none bg-gray-200"
+              />
+            </label>
+            <p class="incomeAlert py-2 text-red- 400"></p>
+          </div>
+
+          <h2 class="py-4 mx-2 text-center text-xl font-bold">Expenses</h2>
+          <div class="income-section mx-2 my-4 md:mx-6">
+            <label
+              for="food"
+              class="md:text-xl block w-full bg-gray-200 text-black py-2 px-2 md:px-4 rounded-lg flex"
+            >
+              <span class="w-4/12 lg:2/12">Food:</span>
+              <input
+                id="food"
+                required
+                min="0"
+                name="food"
+                type="number"
+                class="w-8/12 lg:10/12 pl-2 outline-none bg-gray-200"
+              />
+            </label>
+          </div>
+
+          <div class="income-section mx-2 my-4 md:mx-6">
+            <label
+              for="rent"
+              class="md:text-xl block w-full bg-gray-200 text-black py-2 px-2 md:px-4 rounded-lg flex"
+            >
+              <span class="w-4/12 lg:2/12">Rent:</span>
+              <input
+                id="rent"
+                required
+                min="0"
+                name="rent"
+                type="number"
+                class="w-8/12 lg:10/12 pl-2 outline-none bg-gray-200"
+              />
+            </label>
+          </div>
+
+          <div class="income-section mx-2 my-4 md:mx-6">
+            <label
+              for="clothes"
+              class="md:text-xl block w-full bg-gray-200 text-black py-2 px-2 md:px-4 rounded-lg flex"
+            >
+              <span class="w-4/12 lg:2/12">Clothes:</span>
+              <input
+                id="clothes"
+                required
+                min="0"
+                name="clothes"
+                type="number"
+                class="w-8/12 lg:10/12 pl-2 outline-none bg-gray-200"
+              />
+            </label>
+          </div>
+
+          <div class="py-4 text-center">
+            <button
+              type="submit"
+              class="calculate-btn py-2 px-4 bg-yellow-500 hover:bg-yellow-700 rounded-lg"
+            >
+              Calculate
+            </button>
+          </div>
+        </form>
+        <div class="info py-4 text-center text-xl">
+          <div class="flex justify-around mb-[20px]">
+            <span>Total Expenses: </span>
+            <div class="flex items-center">
+              <span class="material-icons-outlined">attach_money</span>
+              <span class="total-expenses" id="total-expenses">0</span>
+            </div>
+          </div>
+
+          <div class="flex justify-around mb-[20px]">
+            <span>Balance:</span>
+            <div class="flex items-center">
+              <span class="material-icons-outlined">attach_money</span>
+              <span class="" id="balance">0</span>
+            </div>
+          </div>
+        </div>
+
+        <fieldset class="border-2 border-white rounded-md p-4">
+          <legend class="bg-white text-black py-1 px-2 text-sm rounded-full">
+            For Saving :
+          </legend>
+
+          <div class="flex justify-between p-2">
+            <span class="w-[35%]">Saving :</span>
+            <input
+              class="w-[30%] transition-all text-center pl-3 text-black outline-none rounded-md"
+              id="savingInput"
+              type="text"
+            />
+            <span class="w-[15%] text-center">%</span>
+            <button
+              class="rounded-md bg-yellow-500 hover:bg-yellow-700 px-2 py-1 text-sm w[20%] saving-btn"
+            >
+              Save
+            </button>
+          </div>
+          <p class="savingAlert text-red-500 text-sm"></p>
+          <div class="mx-[30px]">
+            <div class="flex justify-around mb-[10px]">
+              <span>Saving Amount:</span>
+              <div class="flex items-center">
+                <span class="">$</span>
+                <span class="savingAmount">0</span>
+              </div>
+            </div>
+
+            <div class="flex justify-around mb-[10px]">
+              <span>Remaining Balance:</span>
+              <div class="flex items-center">
+                <span class="">$</span>
+                <span class="remainingBalance">0</span>
+              </div>
+            </div>
+          </div>
+        </fieldset>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer
+      class="text-center py-2 bg-[#112222] text-gray-100 font-light text-sm md:text-xl"
+    >
+      &copy; copywrite <span class="year"></span> All right reserved by
+      Financial Master
+    </footer>
+    <script src="./script.js"></script>
+  </body>
+</html>
